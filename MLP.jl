@@ -4,6 +4,11 @@
   Arreglar que cuando todas las layers son de la misma dimension ( {N,M} )
   el vector layers es de tipo AbstractVector{Layer{N,M}}
   en lugar de AbstractVector{Layer}. Redefinir Layer para no usar tipos paramétricos?
+
+  Dejar de usar AbstractVector y AbstractMatrix. Usar mejor T<:AbstractVector
+  (Ver https://docs.julialang.org/en/stable/manual/performance-tips/#Avoid-fields-with-abstract-containers-1)
+
+  
 =#
 
 """

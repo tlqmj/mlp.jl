@@ -1,27 +1,30 @@
 """
     Layer{N,M}(activationfn=sigmoid; T=Float64)
     Layer(N, M, activationfn=sigmoid; T=Float64)
-    Layer{N,M}(weights, activationfn=sigmoid)
     Layer(weights, activationfn=sigmoid)
 
-Constructs a Layer, either by explicitly passing its weights or by initializing them at 1 by passing the layer's dimensions (and optionally, a type `T`).
+Constructs a Layer, either by explicitly passing its `weights` or by initializing them at 1 by passing the layer's dimensions (and optionally, a type `T`).
 An activation function can also be passed.
 
 A `Layer{N,M}` acts like a ℜᴺ→ℜᴹ function:
 
-    julia> layer = Layer{2,3}();
+# Examples
 
-    julia> layer([-10, 10])
-    3-element Array{Float64,1}:
-     0.500
-     0.500
-     0.500
+```jldoctest
+julia> layer = Layer{2,3}();
 
-    julia> layer(-10, 10)
-    3-element Array{Float64,1}:
-     0.500
-     0.500
-     0.500
+julia> layer([-10, 10])
+3-element Array{Float64,1}:
+ 0.500
+ 0.500
+ 0.500
+
+julia> layer(-10, 10)
+3-element Array{Float64,1}:
+ 0.500
+ 0.500
+ 0.500
+```
 """
 struct Layer{N,M}
   weights::AbstractMatrix{Float64}
